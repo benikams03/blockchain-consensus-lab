@@ -145,13 +145,20 @@ export function makeServer(options: {
                 return;
             }
             const pathname = decodeURIComponent(url.pathname);
-            const path = resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
+            let path = resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
             const relative = path.slice(root.length);
             if (!path.startsWith(root) || relative.includes('..') || !['/', '\\'].some(s => relative.startsWith(s))) {
                 json(res, 403, { error: { code: 'PATH_FORBIDDEN' } });
                 return;
             }
-            const info = await stat(path);
+            let info;
+            try {
+                info = await stat(path);
+            } catch {
+                // File not found - serve index.html for SPA fallback
+                path = resolve(root, 'index.html');
+                info = await stat(path);
+            }
             if (!info.isFile()) {
                 json(res, 404, { error: { code: 'NOT_FOUND' } });
                 return;
