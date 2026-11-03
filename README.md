@@ -4,7 +4,7 @@
 
 ![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green) ![React](https://img.shields.io/badge/React-19-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue) ![Solidity](https://img.shields.io/badge/Solidity-0.8.28-black) ![Version](https://img.shields.io/badge/version-4.1.0-orange)
 
-**Démonstration publique :** https://  
+**Démonstration publique :** `https://blockchain-consensus-lab.onrender.com/`
 **Dépôt GitHub :** `https://github.com/benikams03/blockchain-consensus-lab`
 
 ## 1. Membres du groupe
@@ -88,6 +88,7 @@ Variables d'environnement disponibles dans `.env.example` :
 ```dotenv
 PORT=4173
 HOST=127.0.0.1
+#
 ALLOWED_ORIGINS=https://votre-interface.vercel.app
 ```
 
@@ -120,18 +121,54 @@ Une fois le contrat déployé, mettre à jour `deployment/sepolia.json` et fourn
 
 ## 6. Déploiement
 
-### Interface statique (Vercel)
+### Hébergement sur Render
 
-1. Importer le dépôt GitHub dans Vercel.
-2. Configurer la commande de construction : `npm ci && npm run contracts:compile && npm run build`.
-3. Publier le répertoire `dist/` avec la configuration `vercel.json` fournie.
-4. Tester les Workers, l'interface et la connexion MetaMask dans le navigateur.
+L'application est déployée sur **Render**, qui héberge à la fois l'interface web React et le serveur Node.js (API et WebSockets).
 
-### Serveur API (Render / Railway)
+#### Étapes de déploiement
 
-Les fichiers `render.yaml` et `railway.json` sont fournis. Construire l'application puis démarrer avec `npm start` ; configurer `HOST=0.0.0.0`, `PORT` selon l'hébergeur et `ALLOWED_ORIGINS` avec l'origine HTTPS exacte du frontend.
+1. Créer un compte sur [Render](https://render.com/).
+2. Sélectionner **New → Web Service**.
+3. Connecter le dépôt GitHub du projet.
+4. Configurer le service avec les paramètres suivants :
 
-Contrôle de santé : `GET /api/health`. Utiliser HTTPS/WSS en public. Les sessions sont conservées en mémoire, pas dans une base persistante.
+| Paramètre | Valeur |
+|---|---|
+| Language | Node |
+| Branch | `main` |
+| Root Directory | `./` |
+| Build Command | `npm ci --include=dev && npm run contracts:compile && npm run build` |
+| Start Command | `npm start` |
+| Node Version | `22` |
+
+#### Variables d'environnement
+
+Dans **Environment**, ajouter :
+
+```env
+PORT=10000
+HOST=0.0.0.0
+```
+
+La variable `ALLOWED_ORIGINS` n'est pas nécessaire pour un frontend et un backend hébergés sous la même origine, sous réserve de la configuration CORS du serveur.
+
+#### Vérification du déploiement
+
+Après le déploiement, Render fournit une URL publique HTTPS :
+
+`https://blockchain-consensus-lab.onrender.com`
+
+Vérifier le fonctionnement de l'API avec :
+
+`https://blockchain-consensus-lab.onrender.com/api/health`
+
+Tester ensuite les simulations PoW, PoS et PBFT, les connexions WebSocket et l'intégration MetaMask.
+
+**Remarques :**
+- Les connexions publiques utilisent HTTPS et WSS.
+- Les sessions de simulation sont conservées en mémoire et ne sont pas persistantes après un redémarrage.
+- Le serveur doit servir les fichiers compilés du frontend pour permettre l'utilisation complète de l'application sur Render.
+- Le smart contract Solidity est déployé séparément sur le réseau Ethereum Sepolia.
 
 ### Déploiement du contrat sur Sepolia
 
