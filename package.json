@@ -1,0 +1,42 @@
+{
+  "name": "consensus-atelier",
+  "version": "4.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Laboratoire pédagogique de consensus PoW, PoS et PBFT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node build/server/index.js",
+    "dev": "node scripts/dev.mjs",
+    "check": "tsc --noEmit",
+    "test": "node scripts/test.mjs",
+    "experiments": "node build/scripts/experiments.js",
+    "distributed": "node build/scripts/distributed.js",
+    "contracts:compile": "hardhat compile && node scripts/export-contract.mjs",
+    "contracts:test": "hardhat test",
+    "verify": "npm run check && npm test && npm run contracts:test && npm run build"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.9.7",
+    "@noble/hashes": "^1.8.0",
+    "d3": "^7.9.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "ws": "^8.18.3",
+    "ethers": "6.17.0"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/ws": "^8.5.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.3",
+    "hardhat": "2.28.6",
+    "solc": "0.8.28"
+  }
+}

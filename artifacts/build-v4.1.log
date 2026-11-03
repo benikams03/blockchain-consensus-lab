@@ -1,0 +1,5 @@
+
+> consensus-atelier@4.1.0 build
+> node scripts/build.mjs
+
+Build prêt : dist/ (interface) et build/server/index.js (API + WebSocket).

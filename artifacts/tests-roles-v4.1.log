@@ -1,0 +1,17 @@
+✔ rôles : réseau, comité et ressources validés séparément (7.8682ms)
+✔ rôles : la puissance contrôlée porte sur les seuls mineurs désignés (1.0975ms)
+✔ PoW : huit nœuds, trois mineurs non contigus, cinq suiveurs sans découverte (6519.4618ms)
+✔ PoS : neuf nœuds, trois validateurs ; les suiveurs constatent la finalité sans voter (4887.2412ms)
+✔ PBFT : 12 machines, comité 4, quorum propre au comité (9716.4263ms)
+✔ PBFT : 12 machines, comité 7, quorum propre au comité (14331.644ms)
+✔ PBFT : des signatures de suiveurs ne deviennent jamais un quorum de COMMIT (84.3797ms)
+✔ PBFT : les suiveurs en ligne ne remplacent pas les votants absents (6094.5266ms)
+✔ PBFT : rotation parmi les votants, les identités suiveuses sont sautées (9397.9029ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 52470.8434

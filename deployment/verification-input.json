@@ -1,0 +1,24 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "smart-contracts/contracts/ResultsRegistry.sol": {
+      "content": "// SPDX-License-Identifier: MIT\r\npragma solidity 0.8.28;\r\n\r\n/// @title Registre d'empreintes des résultats du simulateur de consensus UNIKIN\r\n/// @notice Horodate une déclaration ; ne vérifie pas l'exécution du consensus hors chaîne.\r\n/// @dev Aucun ETH accepté, aucun transfert, aucune clé privilégiée et aucun appel externe.\r\ncontract ResultsRegistry {\r\n    bytes32 public constant REGISTRY_ID = keccak256(\"UNIKIN_CONSENSUS_RESULTS_V2\");\r\n    struct Result {\r\n        address publisher;\r\n        uint8 protocol; // 0 = PoW, 1 = PoS, 2 = PBFT.\r\n        uint16 nodes;\r\n        uint32 blocks; // Genesis compris, dans la branche du nœud de référence.\r\n        bytes32 traceHash; // Empreinte de la trace publique complète canonisée.\r\n        uint32 transactions; // Paiements inclus dans cette branche.\r\n        uint32 secured; // Confirmés (PoW) ou finalisés (PoS), selon le modèle déclaré.\r\n        uint64 durationMs;\r\n    }\r\n    mapping(bytes32 => Result) private results;\r\n    // Horodatage séparé : il ne participe jamais aux décisions d’intégrité ou d’accès.\r\n    mapping(bytes32 => uint64) public recordedAt;\r\n    uint256 public totalRecords;\r\n    error InvalidResult();\r\n    error AlreadyRecorded(bytes32 resultId);\r\n    error ResultNotFound(bytes32 resultId);\r\n    event ResultRecorded(bytes32 indexed resultId, address indexed publisher, bytes32 indexed traceHash,\r\n        uint8 protocol, uint16 nodes, uint32 blocks, uint32 transactions, uint32 secured, uint64 durationMs);\r\n\r\n    /// @notice L'identité du résultat lie l'auteur et la trace ; un tiers ne peut pas réserver sa clé.\r\n    function resultId(address publisher, bytes32 traceHash) public pure returns (bytes32) {\r\n        return keccak256(abi.encode(publisher, traceHash));\r\n    }\r\n\r\n    /// @notice L'appelant enregistre sa propre déclaration, une seule fois par empreinte.\r\n    function recordRun(bytes32 traceHash, uint8 protocol, uint16 nodes, uint32 blocks,\r\n        uint32 transactions, uint32 secured, uint64 durationMs) external returns (bytes32 id) {\r\n        if (traceHash == bytes32(0) || protocol > 2 || nodes == 0 || nodes > 64 || blocks == 0 || blocks > 1000\r\n            || transactions > 1000 || secured > transactions || durationMs == 0 || durationMs > 30 days * 1000) {\r\n            revert InvalidResult();\r\n        }\r\n        id = resultId(msg.sender, traceHash);\r\n        if (results[id].publisher != address(0)) revert AlreadyRecorded(id);\r\n        // L'auteur provient uniquement de msg.sender : aucun champ d'auteur usurpable.\r\n        results[id] = Result(msg.sender, protocol, nodes, blocks, traceHash, transactions, secured, durationMs);\r\n        recordedAt[id] = uint64(block.timestamp);\r\n        ++totalRecords;\r\n        emit ResultRecorded(id, msg.sender, traceHash, protocol, nodes, blocks, transactions, secured, durationMs);\r\n    }\r\n\r\n    function getResult(bytes32 id) external view returns (Result memory value) {\r\n        value = results[id];\r\n        if (value.publisher == address(0)) revert ResultNotFound(id);\r\n    }\r\n\r\n    function verify(bytes32 id, bytes32 traceHash) external view returns (bool) {\r\n        return results[id].publisher != address(0) && results[id].traceHash == traceHash;\r\n    }\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "paris",
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode"
+        ]
+      }
+    }
+  }
+}

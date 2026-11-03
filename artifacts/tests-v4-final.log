@@ -1,0 +1,27 @@
+✔ Fusion pow : trois machines, deux producteurs et dix comptes indépendants (1600.2652ms)
+✔ Fusion pos : trois machines, deux producteurs et dix comptes indépendants (1218.4913ms)
+✔ Fusion : les ressources personnalisées priment sur le curseur, les tableaux sont isolés (3.5718ms)
+✔ Fusion : reproductibilité du rapport, du journal et des signatures (1702.9011ms)
+✔ régression : messages authentifiés à corps nul rejetés sans interrompre le moteur historique (10691.8944ms)
+✔ régression checkpoint : un bloc créé sur la frontière ne devient pas le checkpoint précédent selon l’ordre de réception (146.1674ms)
+✔ certificat PoS : vérification publique et rejet d’une signature ou mise modifiée (6544.639ms)
+✔ PBFT byzantin default : progression, quorum et préfixe commun (10161.9432ms)
+✔ PBFT byzantin silent : progression, quorum et préfixe commun (8546.8915ms)
+✔ PBFT byzantin withhold : progression, quorum et préfixe commun (8972.0822ms)
+✔ PBFT byzantin equivocate : progression, quorum et préfixe commun (11038.8967ms)
+✔ PBFT byzantin invalid : progression, quorum et préfixe commun (8884.0787ms)
+✔ PBFT : partition 2+2 sans quorum puis reconnexion et récupération des paiements (10517.3831ms)
+✔ scénario de double dépense : livraison puis remplacement confirmé, k=6 empêche la livraison de cette expérience (17754.2124ms)
+✔ preuve Merkle : cinq feuilles, chacune vérifiable et modification détectée (3.6601ms)
+✔ ateliers variables : huit mineurs et huit portefeuilles, puissance nulle et conservation monétaire (464.142ms)
+✔ Sepolia : changement demandé, refus et chaîne persistante incorrecte propagés (1.789ms)
+✔ ancrage : rapport achevé seulement et toute modification change son empreinte (1243.1777ms)
+✔ API, isolation, commandes idempotentes, curseur et véritable WebSocket (666.8959ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 100860.3304

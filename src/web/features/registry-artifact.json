@@ -1,0 +1,300 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "resultId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "AlreadyRecorded",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidResult",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "resultId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "ResultNotFound",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "resultId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "publisher",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "traceHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "protocol",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint16",
+          "name": "nodes",
+          "type": "uint16"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "blocks",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "transactions",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "secured",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "durationMs",
+          "type": "uint64"
+        }
+      ],
+      "name": "ResultRecorded",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "REGISTRY_ID",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getResult",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "publisher",
+              "type": "address"
+            },
+            {
+              "internalType": "uint8",
+              "name": "protocol",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint16",
+              "name": "nodes",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint32",
+              "name": "blocks",
+              "type": "uint32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "traceHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "transactions",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "secured",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "durationMs",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct ResultsRegistry.Result",
+          "name": "value",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "traceHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint8",
+          "name": "protocol",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint16",
+          "name": "nodes",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint32",
+          "name": "blocks",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "transactions",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "secured",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint64",
+          "name": "durationMs",
+          "type": "uint64"
+        }
+      ],
+      "name": "recordRun",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "id",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "recordedAt",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "publisher",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "traceHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "resultId",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalRecords",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "id",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "traceHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "verify",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b5061087c8061001f6000396000f3fe608060405234801561001057600080fd5b506004361061007d5760003560e01c80636ad3f74c1161005b5780636ad3f74c146100d45780638e35fcc4146100fb578063add4c7841461010e578063bc23adb71461012e57600080fd5b8063125f8974146100825780631f7d63f11461009e5780634e8fee00146100b1575b600080fd5b61008b60025481565b6040519081526020015b60405180910390f35b61008b6100ac36600461066b565b61016f565b6100c46100bf36600461070b565b6104d4565b6040519015158152602001610095565b61008b7f663a417fb18056c3bce8f480a387d9fbaceb0a5d1b13469de6287924d56c2afe81565b61008b61010936600461072d565b610511565b61012161011c366004610765565b61054e565b604051610095919061077e565b61015761013c366004610765565b6001602052600090815260409020546001600160401b031681565b6040516001600160401b039091168152602001610095565b6000871580610181575060028760ff16115b8061018e575061ffff8616155b8061019d575060408661ffff16115b806101ac575063ffffffff8516155b806101be57506103e88563ffffffff16115b806101d057506103e88463ffffffff16115b806101e657508363ffffffff168363ffffffff16115b806101f857506001600160401b038216155b8061020f5750639a7ec800826001600160401b0316115b1561022c5760405162f8b33f60e71b815260040160405180910390fd5b6102363389610511565b6000818152602081905260409020549091506001600160a01b03161561027657604051622d326160e51b8152600481018290526024015b60405180910390fd5b604051806101000160405280336001600160a01b031681526020018860ff1681526020018761ffff1681526020018663ffffffff1681526020018981526020018563ffffffff1681526020018463ffffffff168152602001836001600160401b031681525060008083815260200190815260200160002060008201518160000160006101000a8154816001600160a01b0302191690836001600160a01b0316021790555060208201518160000160146101000a81548160ff021916908360ff16021790555060408201518160000160156101000a81548161ffff021916908361ffff16021790555060608201518160000160176101000a81548163ffffffff021916908363ffffffff1602179055506080820151816001015560a08201518160020160006101000a81548163ffffffff021916908363ffffffff16021790555060c08201518160020160046101000a81548163ffffffff021916908363ffffffff16021790555060e08201518160020160086101000a8154816001600160401b0302191690836001600160401b03160217905550905050426001600083815260200190815260200160002060006101000a8154816001600160401b0302191690836001600160401b031602179055506002600081546104549061081f565b909155506040805160ff8916815261ffff8816602082015263ffffffff878116828401528681166060830152851660808201526001600160401b03841660a082015290518991339184917ff41d01ee083e4dc284df023174c285de20b59792d9352ba725cf40da27bb57c5919081900360c00190a4979650505050505050565b6000828152602081905260408120546001600160a01b03161580159061050a575060008381526020819052604090206001015482145b9392505050565b604080516001600160a01b038416602082015290810182905260009060600160405160208183030381529060405280519060200120905092915050565b6040805161010081018252600080825260208201819052918101829052606081018290526080810182905260a0810182905260c0810182905260e0810191909152506000818152602081815260409182902082516101008101845281546001600160a01b038116808352600160a01b820460ff1694830194909452600160a81b810461ffff1694820194909452600160b81b90930463ffffffff90811660608501526001820154608085015260029091015480821660a0850152640100000000810490911660c08401526801000000000000000090046001600160401b031660e0830152610652576040516372fceee960e01b81526004810183905260240161026d565b919050565b803563ffffffff8116811461065257600080fd5b600080600080600080600060e0888a03121561068657600080fd5b87359650602088013560ff8116811461069e57600080fd5b9550604088013561ffff811681146106b557600080fd5b94506106c360608901610657565b93506106d160808901610657565b92506106df60a08901610657565b915060c08801356001600160401b03811681146106fb57600080fd5b8091505092959891949750929550565b6000806040838503121561071e57600080fd5b50508035926020909101359150565b6000806040838503121561074057600080fd5b82356001600160a01b038116811461075757600080fd5b946020939093013593505050565b60006020828403121561077757600080fd5b5035919050565b81516001600160a01b0316815260208083015160ff169082015260408083015161ffff16908201526060808301516101008301916107c39084018263ffffffff169052565b506080830151608083015260a08301516107e560a084018263ffffffff169052565b5060c08301516107fd60c084018263ffffffff169052565b5060e083015161081860e08401826001600160401b03169052565b5092915050565b60006001820161083f57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220912549de22c8aad5acd5745ba8913fa5e124f0467fafa5f03dcb534d7461233364736f6c634300081c0033",
+  "compiler": "0.8.28",
+  "optimizerRuns": 200,
+  "evmVersion": "paris",
+  "registryId": "UNIKIN_CONSENSUS_RESULTS_V2"
+}

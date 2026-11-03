@@ -1,0 +1,10 @@
+✔ certificat PoS : vérification publique et rejet d’une signature ou mise modifiée (7876.8023ms)
+✔ PoS : neuf nœuds, trois validateurs ; les suiveurs constatent la finalité sans voter (6473.9722ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9556.395

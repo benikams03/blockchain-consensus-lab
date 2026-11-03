@@ -1,0 +1,13 @@
+{
+  "network": "Hardhat local 31337",
+  "compiler": "0.8.28",
+  "optimizerRuns": 200,
+  "evmVersion": "paris",
+  "gas": {
+    "deployment": "522126",
+    "record": "140542",
+    "pow": "140530",
+    "pos": "123430",
+    "pbft": "123442"
+  }
+}

@@ -1,0 +1,94 @@
+
+> consensus-atelier@4.1.0 test
+> node scripts/test.mjs
+
+✔ PoW réel : nonce trouvé, hash sous la cible et altérations refusées (489.398ms)
+✔ PoW réel : taille des lots indépendante de la preuve et puissance bornée (101.4158ms)
+✔ staking : dépôt sans création monétaire, poids figés et votes historiques vérifiables (291.3519ms)
+✔ staking : retrait réservé, pas de double retrait et libération après deux époques (326.0447ms)
+✔ staking : fonds insuffisants et montants invalides ne modifient pas le registre (1.6468ms)
+✔ staking : 20 % silencieux permet la finalité, 40 % la bloque au départ (804.0553ms)
+✔ staking : preuve de double proposition et destruction comptable réelle (69.2716ms)
+✔ séries : aucun délai absent ou essai partiel ne devient un zéro ou un succès (222.9907ms)
+✔ relecture : l’état final recalculé égale l’export original sans mutation (4995.8284ms)
+✔ explication : le quorum PBFT utilise le nombre de nœuds du run (146.8108ms)
+✔ file de priorité : temps puis ordre d’insertion (6.1029ms)
+✔ hasard reproductible et séparation des seeds (1.3794ms)
+✔ signature réelle : modification et substitution d’identité rejetées (549.5877ms)
+✔ sérialisation canonique indépendante de l’ordre des clés (1.2239ms)
+✔ rejet atomique du bloc et conservation du parent (115.5389ms)
+✔ double dépense : une seule transaction de même nonce par branche (104.8029ms)
+✔ transfert vers soi-même : montant conservé et nonce incrémenté (19.4467ms)
+✔ montants flottants, faux hash et soldes insuffisants rejetés (42.6593ms)
+✔ bloc : signature, ordre des transactions et lien parent vérifiés (44.2469ms)
+✔ configuration : bornes, valeurs inconnues et consensus incompatibles (3.5417ms)
+✔ les neuf scénarios sont distincts, valides et couvrent les trois mécanismes (8.7281ms)
+✔ nouveau scénario PoW : publication puis réorganisation sans double dépense (19448.5158ms)
+✔ les deux scénarios PoS distinguent production et capacité à finaliser (45283.6679ms)
+✔ nouveau scénario PBFT : deux leaders silencieux, reprise et quorum de cinq (85087.8873ms)
+✔ interprétation : conclusion issue des mesures, garanties distinctes et charge limitée (241.3486ms)
+✔ interprétation : absence de finalité et trace tronquée ne deviennent pas un résultat gagnant (109.9921ms)
+✔ Fusion pow : trois machines, deux producteurs et dix comptes indépendants (1820.2764ms)
+✔ Fusion pos : trois machines, deux producteurs et dix comptes indépendants (1625.0507ms)
+✔ Fusion : les ressources personnalisées priment sur le curseur, les tableaux sont isolés (5.879ms)
+✔ Fusion : reproductibilité du rapport, du journal et des signatures (2299.7092ms)
+✔ régression : messages authentifiés à corps nul rejetés sans interrompre le moteur historique (12631.2744ms)
+✔ régression checkpoint : un bloc créé sur la frontière ne devient pas le checkpoint précédent selon l’ordre de réception (171.4705ms)
+✔ certificat PoS : vérification publique et rejet d’une signature ou mise modifiée (7072.3912ms)
+✔ PBFT byzantin default : progression, quorum et préfixe commun (10514.0415ms)
+✔ PBFT byzantin silent : progression, quorum et préfixe commun (8815.1845ms)
+✔ PBFT byzantin withhold : progression, quorum et préfixe commun (9420.8554ms)
+✔ PBFT byzantin equivocate : progression, quorum et préfixe commun (12003.2447ms)
+✔ PBFT byzantin invalid : progression, quorum et préfixe commun (9226.9465ms)
+✔ PBFT : partition 2+2 sans quorum puis reconnexion et récupération des paiements (11814.7394ms)
+✔ scénario de double dépense : livraison puis remplacement confirmé, k=6 empêche la livraison de cette expérience (19672.8916ms)
+✔ preuve Merkle : cinq feuilles, chacune vérifiable et modification détectée (4.1415ms)
+✔ ateliers variables : huit mineurs et huit portefeuilles, puissance nulle et conservation monétaire (507.2ms)
+✔ Sepolia : changement demandé, refus et chaîne persistante incorrecte propagés (2.157ms)
+✔ ancrage : rapport achevé seulement et toute modification change son empreinte (1424.797ms)
+✔ pow : progression honnête, registre conservé, événements ordonnés (3051.6963ms)
+✔ pos : progression honnête, registre conservé, événements ordonnés (3660.2515ms)
+✔ pbft : progression honnête, registre conservé, événements ordonnés (8742.5687ms)
+✔ même configuration et seed : même trace, mêmes mesures (3471.8663ms)
+✔ vitesse d’animation et découpage des appels : aucune incidence (6080.5867ms)
+✔ PoW : pas de finalité déterministe inventée (1418.4231ms)
+✔ PoW : branche privée ne se propage pas avant publication (526.488ms)
+✔ PoW : double dépense observée seulement après livraison et remplacement (15836.3053ms)
+✔ PoS : justification et finalité distinctes (5995.9849ms)
+✔ PoS : plus d’un tiers silencieux empêche la finalité du modèle fixe (5274.5038ms)
+✔ PBFT : les certificats sont signés par au moins 2f+1 identités distinctes (7833.5542ms)
+✔ PBFT : un leader silencieux conduit à une nouvelle vue et à la reprise (13175.2141ms)
+✔ PBFT : une partition 2+2 ne réunit pas de quorum et la reprise fonctionne (15403.515ms)
+✔ métriques : absence de décision = null, jamais délai zéro (933.9256ms)
+✔ rôles : réseau, comité et ressources validés séparément (20.5105ms)
+✔ rôles : la puissance contrôlée porte sur les seuls mineurs désignés (1.655ms)
+✔ PoW : huit nœuds, trois mineurs non contigus, cinq suiveurs sans découverte (7920.3879ms)
+✔ PoS : neuf nœuds, trois validateurs ; les suiveurs constatent la finalité sans voter (6337.9154ms)
+✔ PBFT : 12 machines, comité 4, quorum propre au comité (11135.2572ms)
+✔ PBFT : 12 machines, comité 7, quorum propre au comité (16457.0202ms)
+✔ PBFT : des signatures de suiveurs ne deviennent jamais un quorum de COMMIT (98.9019ms)
+✔ PBFT : les suiveurs en ligne ne remplacent pas les votants absents (7578.4358ms)
+✔ PBFT : rotation parmi les votants, les identités suiveuses sont sautées (11225.2349ms)
+✔ API, isolation, commandes idempotentes, curseur et véritable WebSocket (1567.9297ms)
+ℹ tests 68
+ℹ suites 0
+ℹ pass 68
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 151149.4905
+✔ processus : PID et ports distincts, HTTP, panne, restauration, partition et rejeu (4994.4305ms)
+✔ processus : propositions contradictoires, changement de vue et décisions compatibles (3483.8238ms)
+✔ processus : signatures invalides rejetées sans empêcher le quorum honnête (3481.4446ms)
+✔ API distribuée : capacité, contrôle d’accès, commande idempotente et libération (731.5781ms)
+✔ processus : votes retenus à sept répliques (2189.4083ms)
+✔ processus : leader silencieux remplacé (3608.1319ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19120.6041

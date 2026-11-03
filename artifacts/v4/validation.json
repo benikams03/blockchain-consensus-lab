@@ -1,0 +1,18 @@
+{
+  "modelVersion": "atelier-fusion-4.0.0",
+  "date": "2026-11-02",
+  "simulationTests": 65,
+  "targetedRecheck": 19,
+  "targetedIsSubset": true,
+  "hardhatTests": 7,
+  "guidedScenarios": 16,
+  "slither": {
+    "version": "0.11.6",
+    "contracts": 1,
+    "detectors": 102,
+    "findings": 0
+  },
+  "sepoliaDeployed": false,
+  "reason": "ETH de test et signature personnelle nécessaires",
+  "productionNpmVulnerabilities": 0
+}

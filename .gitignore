@@ -1,0 +1,25 @@
+node_modules/
+build/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+test-results/
+.sites-local/
+.sites-runtime/
+.sites-checkout/
+.sites-checkout-*/
+artifacts/*.zip
+artifacts/runtime/
+.local/
+smart-contracts/artifacts/
+smart-contracts/cache/
+
+# Public validation evidence for the Fusion release
+!artifacts/tests-v4*.log
+!artifacts/contracts-tests-v4.log
+!artifacts/build-v4.log
+!artifacts/scenarios-v4.log
+!artifacts/slither.log
+!artifacts/*v4.1.log

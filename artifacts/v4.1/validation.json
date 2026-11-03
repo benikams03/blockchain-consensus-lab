@@ -1,0 +1,13 @@
+{
+  "modelVersion": "atelier-fusion-4.1.0",
+  "date": "2026-11-02",
+  "projectTests": 74,
+  "contractTests": 7,
+  "roleCasesIncluded": 9,
+  "networkNodesDemo": 10,
+  "powMinersDemo": 3,
+  "posValidatorsDemo": 3,
+  "pbftReplicasDemo": 4,
+  "pbftQuorumDemo": 3,
+  "sepoliaDeployed": false
+}

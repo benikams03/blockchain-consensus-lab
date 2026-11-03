@@ -1,0 +1,17 @@
+honest: 24 blocs, 40 tx, finalité 0, 0 preuves
+forks: 26 blocs, 40 tx, finalité 0, 0 preuves
+double: 33 blocs, 39 tx, finalité 0, 0 preuves
+finality: 29 blocs, 40 tx, finalité 0, 9 preuves
+leader: 42 blocs, 40 tx, finalité 42, 0 preuves
+partition: 17 blocs, 40 tx, finalité 17, 0 preuves
+majority: 32 blocs, 40 tx, finalité 0, 0 preuves
+resilience: 30 blocs, 40 tx, finalité 24, 5 preuves
+rotation: 33 blocs, 40 tx, finalité 33, 0 preuves
+zero-power: 24 blocs, 40 tx, finalité 0, 0 preuves
+zero-stake: 30 blocs, 40 tx, finalité 24, 0 preuves
+offline-stake: 26 blocs, 21 tx, finalité 0, 0 preuves
+retained-votes: 30 blocs, 40 tx, finalité 0, 0 preuves
+surround-vote: 30 blocs, 40 tx, finalité 24, 4 preuves
+pbft-equivocation: 42 blocs, 40 tx, finalité 42, 5 preuves
+pbft-invalid: 37 blocs, 21 tx, finalité 37, 0 preuves
+16 scénarios validés ; rapports et mesures dans artifacts/v4.

@@ -1,0 +1,18 @@
+
+> consensus-atelier@4.0.0 contracts:test
+> hardhat test
+
+
+
+  ResultsRegistry V2 : PoW, PoS et PBFT
+    √ identifiant de version V2, état initial et lecture absente (139ms)
+    √ enregistrement immuable, auteur authentique, résumé et événement (171ms)
+    √ bornes et incohérences refusées, PBFT accepté, protocole 3 refusé (154ms)
+    √ doublon refusé et impossible écrasement par un autre compte (188ms)
+    √ aucun ETH reçu, aucune méthode payable (45ms)
+    √ les rapports réellement produits par les trois moteurs peuvent être ancrés (9853ms)
+    √ rapport incomplet, partiel et altération : détection avant ou après enregistrement (676ms)
+
+
+  7 passing (14s)
+
