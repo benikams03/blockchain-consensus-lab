@@ -1,9 +1,0 @@
-node_modules
-build
-dist
-.git
-.env
-.env.*
-artifacts
-test-results
-.sites-local
